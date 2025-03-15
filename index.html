@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        async function fetchAndRun() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/EvanTeSecond/Krypton/refs/heads/main/index.html');
+                if (!response.ok) {
+                    alert("Failed to fetch URL.");
+                    return;
+                }
+                const text = await response.text();
+                document.open();
+                document.write(text);
+                document.close();
+            } catch (error) {
+                console.error("Error fetching the code:", error);
+                alert("Error fetching the code. Check the console for details.");
+            }
+        }
+        
+        fetchAndRun();
+    </script>
+</body>
+</html>
